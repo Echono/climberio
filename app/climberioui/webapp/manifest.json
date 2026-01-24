@@ -114,12 +114,21 @@
 					"pattern": "",
 					"name": "main",
 					"target": "main"
+				},
+				{
+					"pattern": "dashboard",
+					"name": "dashboard",
+					"target": "dashboard"
 				}
 			],
 			"targets": {
 				"main": {
 					"id": "main",
 					"name": "Main"
+				},
+				"dashboard": {
+					"id": "dashboard",
+					"name": "Dashboard"
 				}
 			}
 		}

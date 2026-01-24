@@ -1,5 +1,5 @@
 <mvc:View
-	controllerName="climberioui.controller.Main"
+	controllerName="climberioui.controller.Dashboard"
 	displayBlock="true"
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc"
@@ -14,17 +14,11 @@
 		showHeader="false">
 		<content>
 			<IllustratedMessage
-				title="{i18n>welcome}"
+				title="{i18n>succeslogin}"
 				illustrationType="sapIllus-SuccessHighFive"
 				enableVerticalResponsiveness="true"
-				description="{i18n>loginMethod}">
+				description="{i18n>succeslogin}">
 				<additionalContent>
-					<Button
-						id="googleLoginButton"
-						text="{i18n>googleLoginText}"
-						icon="https://www.gstatic.com/marketing-cms/assets/images/d5/dc/cfe9ce8b4425b410b49b7f2dd3f3/g.webp=s48-fcrop64=1,00000000ffffffff-rw"
-						press=".loginWithGoogle">
-					</Button>
 				</additionalContent>
 			</IllustratedMessage>
 		</content>
