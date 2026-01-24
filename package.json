@@ -1,0 +1,42 @@
+{
+    "name": "climberio",
+    "version": "1.0.0",
+    "description": "A simple CAP project.",
+    "dependencies": {
+        "@sap/cds": "^9",
+        "express": "^4",
+        "express-session": "^1.19.0",
+        "passport": "^0.7.0",
+        "passport-google-oauth2": "^0.2.0"
+    },
+    "devDependencies": {
+        "@cap-js/cds-typer": ">=0.1",
+        "@cap-js/cds-types": "^0.15.0",
+        "@cap-js/sqlite": "^2",
+        "@types/express-session": "^1.18.2",
+        "@types/node": "^24.0.0",
+        "@types/passport": "^1.0.17",
+        "@types/passport-google-oauth2": "^0.1.10",
+        "tsx": "^4",
+        "typescript": "^5"
+    },
+    "scripts": {
+        "start": "cds-serve"
+    },
+    "private": true,
+    "imports": {
+        "#cds-models/*": "./@cds-models/*/index.js"
+    },
+    "cds": {
+        "requires": {
+            "auth": {
+                "impl": "srv/authentication/custom.ts"
+            },
+            "db": {
+                "model": [
+                    "srv/"
+                ]
+            }
+        }
+    }
+}
