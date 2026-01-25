@@ -1,4 +1,3 @@
-import MessageBox from "sap/m/MessageBox";
 import BaseController from "./BaseController";
 import { URLHelper } from "sap/m/library";
 

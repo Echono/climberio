@@ -23,8 +23,8 @@
 					"odataVersion": "4.0"
 				}
 			},
-			"climbercapuser": {
-				"uri": "/user/",
+			"climbercapauth": {
+				"uri": "/authentication/",
 				"type": "OData",
 				"settings": {
 					"localUri": "localService/metadata.xml",
@@ -78,9 +78,9 @@
 					"earlyRequests": true
 				}
 			},
-			"user": {
+			"authentication": {
 				"type": "sap.ui.model.odata.v4.ODataModel",
-				"dataSource": "climbercapuser",
+				"dataSource": "climbercapauth",
 				"preload": true,
 				"settings": {
 					"synchronizationMode": "None",

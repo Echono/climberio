@@ -12,14 +12,10 @@ export default class Dashboard extends BaseController {
         this.getRouter().getRoute("dashboard").attachPatternMatched(this.onPatternMatched, this);
     }
 
-    private onPatternMatched(event: Route$PatternMatchedEvent) {
-        debugger;
-        const odataModel = this.getModel('user') as ODataModel;
-        const context = odataModel.bindContext('/getCurrentUser(...)');
-        context.invoke().then((data) => {
-            const object = context.getBoundContext().getObject();
-            debugger;
-        })
+    private async onPatternMatched(event: Route$PatternMatchedEvent) {
+        if(!await this.isAuthenticated()) {
+            this.navTo("main");
+        }
     }
 
 }
