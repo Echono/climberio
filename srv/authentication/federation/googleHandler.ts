@@ -18,7 +18,7 @@ export function googleSetStrategy(app: Application) {
     app.get('/auth/google', passport.authenticate('google', { scope: ['email', 'profile'] }));
     app.get('/auth/google/callback', passport.authenticate('google', {
         successRedirect: '/climberioui/index-cdn.html#/dashboard',
-        failureRedirect: '/failure'
+        failureRedirect: '/auth/failed'
     }));
 
     // Serialize and deserialize user (for session support)

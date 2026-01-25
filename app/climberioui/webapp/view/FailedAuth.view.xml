@@ -1,0 +1,27 @@
+<mvc:View
+	controllerName="climberioui.controller.FailedAuth"
+	displayBlock="true"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	core:require="{
+		formatter: 'climberioui/model/formatter'
+	}">
+
+	<Page
+		title="{i18n>appTitle}"
+		id="page"
+		showHeader="false">
+		<content>
+			<IllustratedMessage
+				title="{i18n>failedlogin}"
+				illustrationType="sapIllus-UnableToLoad"
+				enableVerticalResponsiveness="true"
+				description="{i18n>failedlogin}">
+				<additionalContent>
+				</additionalContent>
+			</IllustratedMessage>
+		</content>
+	</Page>
+
+</mvc:View>

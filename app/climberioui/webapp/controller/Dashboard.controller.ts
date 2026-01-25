@@ -6,7 +6,7 @@ import ODataModel from "sap/ui/model/odata/v4/ODataModel";
 /**
  * @namespace climberioui.controller
  */
-export default class Main extends BaseController {
+export default class Dashboard extends BaseController {
 
     public onInit() {
         this.getRouter().getRoute("dashboard").attachPatternMatched(this.onPatternMatched, this);

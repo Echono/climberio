@@ -119,6 +119,11 @@
 					"pattern": "dashboard",
 					"name": "dashboard",
 					"target": "dashboard"
+				},
+				{
+					"pattern": "auth/failed",
+					"name": "failedAuth",
+					"target": "failedAuth"
 				}
 			],
 			"targets": {
@@ -129,6 +134,10 @@
 				"dashboard": {
 					"id": "dashboard",
 					"name": "Dashboard"
+				},
+				"failedAuth": {
+					"id": "failedAuth",
+					"name": "FailedAuth"
 				}
 			}
 		}

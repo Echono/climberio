@@ -15,7 +15,7 @@
 		<content>
 			<IllustratedMessage
 				title="{i18n>welcome}"
-				illustrationType="sapIllus-SuccessHighFive"
+				illustrationType="sapIllus-ResizingColumns"
 				enableVerticalResponsiveness="true"
 				description="{i18n>loginMethod}">
 				<additionalContent>
