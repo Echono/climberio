@@ -14,8 +14,7 @@
         "./node_modules/@cap-js/cds-types"
       ],
       "#cds-models/*": [
-        "./@cds-models/*",
-        "./app/climberioui/webapp/types/@cds-models/*"
+        "./@cds-models/*"
       ]
     }
   },

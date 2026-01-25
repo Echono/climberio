@@ -7,7 +7,8 @@ import ResourceBundle from "sap/base/i18n/ResourceBundle";
 import Router from "sap/ui/core/routing/Router";
 import History from "sap/ui/core/routing/History";
 import ODataModel from "sap/ui/model/odata/v4/ODataModel";
-import { AuthenticationStatus, StatusCodes } from "cds-models/Status";
+import { Authentication } from "#cds-models/Status";
+import { StatusCodes } from "climberioui/types/Codes";
 
 /**
  * @namespace climberioui.controller
@@ -91,7 +92,7 @@ export default abstract class BaseController extends Controller {
 		const model = this.getModel("authentication") as ODataModel;
 		const context = model.bindContext('/isAuthenticated(...)');
 		await context.invoke();
-		const result = context.getBoundContext()?.getObject() as AuthenticationStatus;
+		const result = context.getBoundContext()?.getObject() as Authentication;
 		return result?.code === StatusCodes.SUCCESS;
 	}
 	

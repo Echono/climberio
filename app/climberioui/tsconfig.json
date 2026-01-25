@@ -8,14 +8,14 @@
 		"strict": true,
 		"strictNullChecks": false,
 		"strictPropertyInitialization": false,
-		"rootDir": "./webapp",
 		"types": ["@openui5/types", "@types/qunit"],
 		"paths": {
 			"climberioui/*": ["./webapp/*"],
 			"unit/*": ["./webapp/test/unit/*"],
-			"integration/*": ["./webapp/test/integration/*"]
+			"integration/*": ["./webapp/test/integration/*"],
+			"#cds-models/*": ["../../@cds-models/*"]
 		}
 	},
 	"exclude": ["./webapp/test/e2e/**/*"],
-	"include": ["./webapp/**/*"]
+	"include": ["./webapp/**/*", "../../@cds-models/**/*"]
 }
