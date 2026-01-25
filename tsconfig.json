@@ -14,8 +14,13 @@
         "./node_modules/@cap-js/cds-types"
       ],
       "#cds-models/*": [
-        "./@cds-models/*"
+        "./@cds-models/*",
+        "./app/climberioui/webapp/types/@cds-models/*"
       ]
     }
-  }
+  },
+  "exclude": [
+    "eslint.config.mjs",
+    "app/climberioui/eslint.config.mjs"
+  ]
 }

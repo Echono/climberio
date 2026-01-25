@@ -26,9 +26,12 @@
     },
     "private": true,
     "imports": {
-        "#cds-models/*": "./@cds-models/*/index.js"
+        "#cds-models/*": "./app/climberioui/webapp/types/@cds-models/*/index.js"
     },
     "cds": {
+        "typer": {
+            "output_directory": "./app/climberioui/webapp/types/@cds-models"
+        },
         "requires": {
             "auth": {
                 "impl": "srv/authentication/custom.ts"
