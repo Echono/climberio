@@ -50,7 +50,7 @@ context Authentication {
         key provider : String;
         key subject  : String;
             user     : Association to one Authentication.User
-                          on user.email = $self.subject;
+                           on user.email = $self.subject;
     }
 
 }
@@ -58,14 +58,18 @@ context Authentication {
 context Status {
 
     type AuthenticationStatus {
-        code    : Integer enum {
-            SUCCESS = 200;
-            UNAUTHORIZED = 401;
-        };
-        message : String enum {
-            SUCCESS = 'Authenticated';
-            UNAUTHORIZED = 'Unauthorized';
-        }
+        code    : StatusCodes;
+        message : StatusMessages;
+    }
+
+    type StatusCodes    : Integer enum {
+        SUCCESS = 200;
+        UNAUTHORIZED = 401;
+    }
+
+    type StatusMessages : String enum {
+        SUCCESS = 'Authenticated';
+        UNAUTHORIZED = 'Unauthorized';
     }
 
 }
