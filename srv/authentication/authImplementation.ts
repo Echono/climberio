@@ -11,11 +11,4 @@ export default function authImplementation(app: Application) {
 
     googleSetStrategy(app);
 
-    app.get('/success', (req, res) => {
-        res.send('Authentication Successful');
-    });
-    
-    app.get('/failure', (req, res) => {
-        res.send('Authentication Failed');
-    });
 }

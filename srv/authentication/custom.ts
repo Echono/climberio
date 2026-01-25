@@ -1,4 +1,5 @@
-import cds from "@sap/cds";
+import AuthenticationService from "#cds-models/AuthenticationService";
+import cds, { connect } from "@sap/cds";
 import { Request, Response, NextFunction } from "express";
 
 type Req = Request & { user: cds.User, tenant: string };

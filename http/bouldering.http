@@ -1,0 +1,17 @@
+@url = http://localhost:4004
+@path = odata/v4/consumer
+
+### GET BoulderingSet
+GET {{url}}/{{path}}/BoulderingSet
+
+### POST BoulderingSet
+POST {{url}}/{{path}}/BoulderingSet
+content-Type: application/json
+
+{
+    "ID": "1",
+    "name": "test",
+    "description": "A new bouldering route",
+    "route": "New Route",
+    "location": "Aalborg"
+}
