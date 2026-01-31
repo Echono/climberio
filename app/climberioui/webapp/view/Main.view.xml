@@ -10,23 +10,22 @@
 
 	<Page
 		title="{i18n>appTitle}"
-		id="page"
+		id="mainPage"
 		showHeader="false">
 		<content>
-			<IllustratedMessage
-				title="{i18n>welcome}"
-				illustrationType="sapIllus-ResizingColumns"
-				enableVerticalResponsiveness="true"
-				description="{i18n>loginMethod}">
-				<additionalContent>
-					<Button
-						id="googleLoginButton"
-						text="{i18n>googleLoginText}"
-						icon="https://www.gstatic.com/marketing-cms/assets/images/d5/dc/cfe9ce8b4425b410b49b7f2dd3f3/g.webp=s48-fcrop64=1,00000000ffffffff-rw"
-						press=".loginWithGoogle">
-					</Button>
-				</additionalContent>
-			</IllustratedMessage>
+			<FlexBox id="mainWrapper" height="100%" justifyContent="Center" alignItems="Center">
+				<FlexBox id="mainBackgroundWrapper" backgroundDesign="Solid">
+					<VBox id="mainContent" class="sapUiSmallMargin" alignItems="Center">
+						<Title text="{i18n>welcome}" class="sapUiSmallMarginBottom" titleStyle="H2"/>
+						<Button
+							id="googleLoginButton"
+							text="{i18n>googleLoginText}"
+							icon="https://www.gstatic.com/marketing-cms/assets/images/d5/dc/cfe9ce8b4425b410b49b7f2dd3f3/g.webp=s48-fcrop64=1,00000000ffffffff-rw"
+							press=".loginWithGoogle">
+						</Button>
+					</VBox>
+				</FlexBox>
+			</FlexBox>
 		</content>
 	</Page>
 
