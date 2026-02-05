@@ -2,26 +2,28 @@
 	controllerName="climberioui.controller.Dashboard"
 	displayBlock="true"
 	xmlns="sap.m"
+	xmlns:tnt="sap.tnt"
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:core="sap.ui.core"
 	core:require="{
 		formatter: 'climberioui/model/formatter'
 	}">
 
-	<Page
-		title="{i18n>appTitle}"
-		id="page"
-		showHeader="false">
-		<content>
-			<IllustratedMessage
-				title="{i18n>succeslogin}"
-				illustrationType="sapIllus-SuccessHighFive"
-				enableVerticalResponsiveness="true"
-				description="{i18n>succeslogin}">
-				<additionalContent>
-				</additionalContent>
-			</IllustratedMessage>
-		</content>
-	</Page>
+	<tnt:ToolPage>
+		<tnt:sideContent>
+			<tnt:SideNavigation
+				expanded="true"
+				itemPress=".onSideNavItemPress">
+				<tnt:NavigationList id="dashboardSideNavList">
+					<tnt:NavigationListItem id="dashboardHome" text="{i18n>home}" icon="sap-icon://home" key="home"/>
+				</tnt:NavigationList>
+				<tnt:fixedItem>
+					<tnt:NavigationList id="dashboardSideNavFooterList">
+						<tnt:NavigationListItem id="dashboardAccount" text="{i18n>account}" icon="sap-icon://account" key="account"/>
+					</tnt:NavigationList>
+				</tnt:fixedItem>
+			</tnt:SideNavigation>
+		</tnt:sideContent>
+	</tnt:ToolPage>
 
 </mvc:View>
