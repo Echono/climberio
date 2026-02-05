@@ -1,0 +1,8 @@
+@url = http://localhost:4004
+@path = authentication
+
+### METADATA
+GET {{url}}/{{path}}/$metadata
+
+### GET Users
+GET {{url}}/{{path}}/UserSet

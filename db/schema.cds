@@ -1,38 +1,65 @@
-using {cuid} from '@sap/cds/common';
+using {
+    cuid,
+    managed
+} from '@sap/cds/common';
 
-context Interfaces {
+context Bouldering {
 
-    entity Excersise : cuid {
-        name        : String;
-        description : String;
+    entity Route : cuid, managed {
+        name          : String;
+        officialGrade : Grade;
+        amountOfHolds : Integer;
+        wallType      : Wall;
+        registrations : Association to many Register
+                            on registrations.route = $self;
+        tags          : Association to many Tag
+                            on tags.ID;
     }
 
-}
-
-context Excersises {
-
-    entity Bouldering : Interfaces.Excersise {
-        route    : String;
-        location : String;
-        Tags     : Association to many ValueHelp.BoulderingTags
-                       on $self.ID = Tags.ID;
-        Grade    : Association to one ValueHelp.Grade;
+    entity Register : managed {
+        key runner                : Association to one Authentication.User;
+        key route                 : Association to one Route;
+            runnerGradeDifficulty : Difficulty;
+            attempts              : Integer;
+            status                : RouteStatus;
     }
 
-}
-
-context ValueHelp {
-
-    entity BoulderingTags : cuid {
-        tagName     : String;
-        description : String;
-        Routes      : Association to many Excersises.Bouldering
-                          on $self.ID = Routes.ID;
+    entity Tag : cuid {
+        name    : String;
+        tagText : String(10);
+        routes  : Association to many Route
+                      on routes.tags = $self;
     }
 
-    entity Grade {
-        color       : String;
-        vEquivalent : String;
+    type RouteStatus : String enum {
+        INPROGRESS = 'In Progress';
+        CLOSED = 'Closed';
+        ONHOLD = 'On Hold';
+    }
+
+    type Wall        : String enum {
+        SLAB = 'Slab';
+        SLOPE = 'Slope';
+        OVERHANG = 'Overhang';
+    }
+
+    type Grade       : String enum {
+        GREEN = 'Green';
+        YELLOW = 'Yellow';
+        ORANGE = 'Orange';
+        BLUE = 'Blue';
+        PURPLE = 'Purple';
+        RED = 'Red';
+        BLACK = 'Black';
+        PINK = 'Pink';
+    }
+
+    type Difficulty  : Integer enum {
+        VERYEASY = 1;
+        EASY = 2;
+        MEDIUM = 3;
+        HARD = 4;
+        VERYHARD = 5;
     }
 
 }
@@ -40,17 +67,17 @@ context ValueHelp {
 context Authentication {
 
     entity User : cuid {
-        key email       : String;
-            roles       : array of String;
-            Credentials : Composition of many Authentication.FederatedCredentials
-                              on Credentials.subject = $self.email;
+        email       : String;
+        roles       : array of String;
+        Credentials : Composition of many Authentication.FederatedCredentials
+                          on Credentials.subject = $self.email;
     }
 
     entity FederatedCredentials {
         key provider : String;
         key subject  : String;
             user     : Association to one Authentication.User
-                          on user.email = $self.subject;
+                           on user.email = $self.subject;
     }
 
 }

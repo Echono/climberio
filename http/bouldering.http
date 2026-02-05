@@ -1,17 +1,60 @@
 @url = http://localhost:4004
-@path = odata/v4/consumer
+@path = bouldering
 
-### GET BoulderingSet
-GET {{url}}/{{path}}/BoulderingSet
+### METADATA
+GET {{url}}/{{path}}/$metadata
 
-### POST BoulderingSet
-POST {{url}}/{{path}}/BoulderingSet
+### GET RouteSet
+GET {{url}}/{{path}}/RouteSet?$expand=tags,registrations
+
+### POST RouteSet
+POST {{url}}/{{path}}/RouteSet
 content-Type: application/json
 
 {
-    "ID": "1",
-    "name": "test",
-    "description": "A new bouldering route",
-    "route": "New Route",
-    "location": "Aalborg"
+    "ID": "582da0e7-14ac-4a41-8c7f-a26df096191e",
+    "name": "New test route",
+    "officialGrade": "Blue",
+    "amountOfHolds": 15,
+    "wallType": "Slab",
+    "tags": [
+        {
+            "tags_ID": "5eb32426-d635-45ed-9a90-a3c68ddfe36f"
+        }
+    ]
+}
+
+### DELETE a Route
+DELETE {{url}}/{{path}}/RouteSet('582da0e7-14ac-4a41-8c7f-a26df096191e')
+
+### GET Tags
+GET {{url}}/{{path}}/TagSet?$expand=routes
+
+### POST a new Tag
+POST {{url}}/{{path}}/TagSet
+content-Type: application/json
+
+{
+    "ID": "5eb32426-d635-45ed-9a90-a3c68ddfe36f",
+    "name": "Heelhook",
+    "tagText": "HH"
+}
+
+
+### DELETE a Tag
+DELETE {{url}}/{{path}}/TagSet('5eb32426-d635-45ed-9a90-a3c68ddfe36f')
+
+### GET RegisterSet
+GET {{url}}/{{path}}/RegisterSet
+
+### POST a new Registration
+POST {{url}}/{{path}}/RegisterSet
+content-Type: application/json
+
+{
+    "route_ID": "582da0e7-14ac-4a41-8c7f-a26df096191e",
+    "runner_ID": "95881ab5-8f51-4e02-8768-e100ad16d44b",
+    "runnerGradeDifficulty": 3,
+    "attempts": 2,
+    "status": "In Progress"
 }
