@@ -9,7 +9,7 @@
 		formatter: 'climberioui/model/formatter'
 	}">
 
-	<tnt:ToolPage>
+	<tnt:ToolPage id="dashboard">
 		<tnt:sideContent>
 			<tnt:SideNavigation
 				expanded="true"
@@ -24,6 +24,9 @@
 				</tnt:fixedItem>
 			</tnt:SideNavigation>
 		</tnt:sideContent>
+		<tnt:mainContents>
+			<NavContainer id="dashboardContainer" />
+		</tnt:mainContents>
 	</tnt:ToolPage>
 
 </mvc:View>

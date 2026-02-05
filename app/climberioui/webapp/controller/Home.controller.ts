@@ -5,10 +5,10 @@ import { Route$PatternMatchedEvent } from "sap/ui/core/routing/Route";
 /**
  * @namespace climberioui.controller
  */
-export default class Dashboard extends BaseController {
+export default class Home extends BaseController {
 
     public onInit() {
-        this.getRouter().getRoute("dashboard").attachPatternMatched(this.onPatternMatched, this);
+        this.getRouter().getRoute("home").attachPatternMatched(this.onPatternMatched, this);
     }
 
     private async onPatternMatched(event: Route$PatternMatchedEvent) {
@@ -18,7 +18,6 @@ export default class Dashboard extends BaseController {
                 const resourceBundle = await this.getResourceBundle();
                 throw new Error(resourceBundle.getText("notAuthenticatedError"));
             }
-            this.getRouter().navTo("home");
         } catch(error) {
             MessageBox.error((error as Error).message, {
                 onClose: () => {
