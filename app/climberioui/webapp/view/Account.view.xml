@@ -1,4 +1,4 @@
-<mvc:View controllerName="climberioui.controller.Home"
+<mvc:View controllerName="climberioui.controller.Account"
     displayBlock="true"
     xmlns="sap.m"
     xmlns:f="sap.f"
@@ -11,7 +11,7 @@
 
 	<f:DynamicPage>
         <f:content>
-            <Text text="hello world Home" />
+            <Text text="hello world Account" />
         </f:content>
 	</f:DynamicPage>
 

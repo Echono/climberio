@@ -9,6 +9,8 @@ import History from "sap/ui/core/routing/History";
 import ODataModel from "sap/ui/model/odata/v4/ODataModel";
 import { Authentication } from "#cds-models/Status";
 import { StatusCodes } from "climberioui/types/Codes";
+import SideNavigation from "sap/tnt/SideNavigation";
+import JSONModel from "sap/ui/model/json/JSONModel";
 
 /**
  * @namespace climberioui.controller
@@ -95,5 +97,14 @@ export default abstract class BaseController extends Controller {
 		const result = context.getBoundContext()?.getObject() as Authentication;
 		return result?.code === StatusCodes.SUCCESS;
 	}
-	
+
+	/**
+	 * Sets the key of which the side navigation will show the current selected side navigation
+	 * @param key string
+	 */
+	public setSideNavigationKey(key: string): void {
+		const model = this.getModel("dashboard") as JSONModel;
+		model.setProperty("/selectedKey", key);
+	}
+
 }

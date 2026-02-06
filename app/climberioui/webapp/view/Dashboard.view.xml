@@ -12,8 +12,10 @@
 	<tnt:ToolPage id="dashboard">
 		<tnt:sideContent>
 			<tnt:SideNavigation
+				id="dashboardSideNav"
 				expanded="true"
-				itemPress=".onSideNavItemPress">
+				itemPress=".onSideNavItemPress"
+				selectedKey="{dashboard>/selectedKey}">
 				<tnt:NavigationList id="dashboardSideNavList">
 					<tnt:NavigationListItem id="dashboardHome" text="{i18n>home}" icon="sap-icon://home" key="home"/>
 				</tnt:NavigationList>
