@@ -1,0 +1,18 @@
+<mvc:View controllerName="climberioui.controller.Bouldering"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+	xmlns:tnt="sap.tnt"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	core:require="{
+		formatter: 'climberioui/model/formatter'
+	}">
+
+	<f:DynamicPage>
+        <f:content>
+            <Text text="hello world Bouldering" />
+        </f:content>
+	</f:DynamicPage>
+
+</mvc:View>

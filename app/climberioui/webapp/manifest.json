@@ -156,6 +156,11 @@
 					"pattern": "dashboard/account",
 					"name": "account",
 					"target": "account"
+				},
+				{
+					"pattern": "dashboard/bouldering",
+					"name": "bouldering",
+					"target": "bouldering"
 				}
 			],
 			"targets": {
@@ -177,6 +182,13 @@
 				"account": {
 					"id": "account",
 					"name": "Account",
+					"parent": "dashboard",
+					"controlId": "dashboardContainer",
+					"controlAggregation": "pages"
+				},
+				"bouldering": {
+					"id": "bouldering",
+					"name": "Bouldering",
 					"parent": "dashboard",
 					"controlId": "dashboardContainer",
 					"controlAggregation": "pages"

@@ -18,11 +18,14 @@
 				selectedKey="{dashboard>/selectedKey}">
 				<tnt:NavigationList id="dashboardSideNavList">
 					<tnt:NavigationListItem id="dashboardHome" text="{i18n>home}" icon="sap-icon://home" key="home"/>
+					<tnt:NavigationListGroup id="dashboardActivitesSection" text="{i18n>activities}">
+						<tnt:NavigationListItem id="dashboardBouldering" text="{i18n>bouldering}" icon="sap-icon://along-stacked-chart" key="bouldering"/>
+					</tnt:NavigationListGroup>
 				</tnt:NavigationList>
 				<tnt:fixedItem>
-					<tnt:NavigationList id="dashboardSideNavFooterList">
-						<tnt:NavigationListItem id="dashboardAccount" text="{i18n>account}" icon="sap-icon://account" key="account"/>
-					</tnt:NavigationList>
+						<tnt:NavigationList id="dashboardSideNavFooterList">
+							<tnt:NavigationListItem id="dashboardAccount" text="{i18n>account}" icon="sap-icon://account" key="account"/>
+						</tnt:NavigationList>
 				</tnt:fixedItem>
 			</tnt:SideNavigation>
 		</tnt:sideContent>
