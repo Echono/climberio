@@ -158,9 +158,14 @@
 					"target": "account"
 				},
 				{
-					"pattern": "dashboard/bouldering",
-					"name": "bouldering",
-					"target": "bouldering"
+					"pattern": "dashboard/bouldering/routes",
+					"name": "routes",
+					"target": "routes"
+				},
+				{
+					"pattern": "dashboard/bouldering/my/runs",
+					"name": "myRuns",
+					"target": "myRuns"
 				}
 			],
 			"targets": {
@@ -186,9 +191,16 @@
 					"controlId": "dashboardContainer",
 					"controlAggregation": "pages"
 				},
-				"bouldering": {
-					"id": "bouldering",
-					"name": "Bouldering",
+				"routes": {
+					"id": "routes",
+					"name": "Routes",
+					"parent": "dashboard",
+					"controlId": "dashboardContainer",
+					"controlAggregation": "pages"
+				},
+				"myRuns": {
+					"id": "myRuns",
+					"name": "MyRuns",
 					"parent": "dashboard",
 					"controlId": "dashboardContainer",
 					"controlAggregation": "pages"

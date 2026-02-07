@@ -1,4 +1,4 @@
-<mvc:View controllerName="climberioui.controller.Bouldering"
+<mvc:View controllerName="climberioui.controller.MyRuns"
     displayBlock="true"
     xmlns="sap.m"
     xmlns:f="sap.f"
@@ -11,7 +11,7 @@
 
 	<f:DynamicPage>
         <f:content>
-            <Text text="hello world Bouldering" />
+            <Text text="hello world My Runs" />
         </f:content>
 	</f:DynamicPage>
 
