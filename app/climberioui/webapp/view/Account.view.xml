@@ -23,6 +23,14 @@
 						<m:Title text="{i18n>account}" wrapping="true"/>
 					</m:HBox>
 				</expandedHeading>
+				<actions>
+					<m:Button text="{i18n>edit}" icon="sap-icon://edit" tooltip="edit">
+						<m:layoutData>
+							<m:OverflowToolbarLayoutData priority="NeverOverflow"/>
+						</m:layoutData>
+					</m:Button>
+					<m:Button text="{i18n>logout}" icon="sap-icon://disconnected" press=".onLogoutPress" type="Emphasized"/>
+				</actions>
 			</ObjectPageDynamicHeaderTitle>
 		</headerTitle>
 		<headerContent>

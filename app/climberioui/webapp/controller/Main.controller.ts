@@ -15,7 +15,8 @@ export default class Main extends BaseController {
 	}
 
 	public async onRouteMatched() {
-		if(await this.isAuthenticated()) {
+		const check = await this.isAuthenticated();
+		if(check.authenticated) {
 			this.getRouter().navTo("dashboard");
 		}
 	}

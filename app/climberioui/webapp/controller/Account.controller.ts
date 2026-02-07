@@ -1,3 +1,4 @@
+import { URLHelper } from "sap/m/library";
 import BaseController from "./BaseController";
 
 /**
@@ -11,6 +12,10 @@ export default class Account extends BaseController {
 
     private onRouteMatched(): void {
         this.setSideNavigationKey("account");
+    }
+
+    public onLogoutPress(): void {
+        URLHelper.redirect("/auth/logout", false);
     }
 
 }
