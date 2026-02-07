@@ -34,11 +34,13 @@ export function googleSetStrategy(app: Application) {
 
         // No current user? Create one
         if(!user) {
-            const insertUserQuery = INSERT.into(UserSet).entries({
+            const userData = {
                 email: profile.email,
+                avatar : profile.picture,
                 roles: ['consumer'],
                 Credentials: [federatedPayload]
-            });
+            } as User;
+            const insertUserQuery = INSERT.into(UserSet).entries(userData);
             user = await service.run(insertUserQuery);
         }
 

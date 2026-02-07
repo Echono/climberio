@@ -69,6 +69,7 @@ context Authentication {
     entity User : cuid {
         email       : String;
         roles       : array of String;
+        avatar      : String;
         Credentials : Composition of many Authentication.FederatedCredentials
                           on Credentials.subject = $self.email;
     }
