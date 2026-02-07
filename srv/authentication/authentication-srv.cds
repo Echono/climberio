@@ -6,6 +6,6 @@ service AuthenticationService @(path: '/authentication') {
 
     entity UserSet as projection on Authentication.User;
 
-    function isAuthenticated() returns Status.Authentication;
+    function isAuthenticated() returns Status.AuthenticationStatus;
 
 }

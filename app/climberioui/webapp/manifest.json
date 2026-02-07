@@ -37,6 +37,13 @@
 				"settings": {
 					"mode": "TwoWay"
 				}
+			},
+			"accountModel": {
+				"type": "JSON",
+				"uri": "model/account.json",
+				"settings": {
+					"mode": "TwoWay"
+				}
 			}
 		}
 	},
@@ -99,6 +106,10 @@
 			"dashboard": {
 				"type": "sap.ui.model.json.JSONModel",
 				"dataSource": "dashboardModel"
+			},
+			"account": {
+				"type": "sap.ui.model.json.JSONModel",
+				"dataSource": "accountModel"
 			},
 			"i18n": {
 				"type": "sap.ui.model.resource.ResourceModel",

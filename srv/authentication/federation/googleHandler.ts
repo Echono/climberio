@@ -36,6 +36,7 @@ export function googleSetStrategy(app: Application) {
         if(!user) {
             const userData = {
                 email: profile.email,
+                username : profile.displayName,
                 avatar : profile.picture,
                 roles: ['consumer'],
                 Credentials: [federatedPayload]

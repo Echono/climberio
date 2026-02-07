@@ -68,6 +68,7 @@ context Authentication {
 
     entity User : cuid {
         email       : String;
+        username    : String;
         roles       : array of String;
         avatar      : String;
         Credentials : Composition of many Authentication.FederatedCredentials
@@ -85,7 +86,7 @@ context Authentication {
 
 context Status {
 
-    type Authentication {
+    type AuthenticationStatus {
         code    : Integer enum {
             SUCCESS = 200;
             UNAUTHORIZED = 401;
@@ -93,7 +94,8 @@ context Status {
         message : String enum {
             SUCCESS = 'Authenticated';
             UNAUTHORIZED = 'Unauthorized';
-        }
+        };
+        user    : Association to one Authentication.User;
     }
 
 }
