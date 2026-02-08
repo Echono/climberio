@@ -30,8 +30,23 @@
     },
     "cds": {
         "requires": {
-            "auth": {
-                "impl": "srv/authentication/custom.ts"
+            "[development]": {
+                "kind": "mocked",
+                "users": {
+                    "admin": {
+                        "password": "pass",
+                        "roles": ["admin"]
+                    },
+                    "consumer": {
+                        "password": "pass",
+                        "roles": ["consumer"]
+                    }
+                }
+            },
+            "[custom]": {
+                "auth": {
+                    "impl": "srv/authentication/custom.ts"
+                }
             },
             "db": {
                 "kind": "sqlite",
@@ -40,7 +55,10 @@
                 },
                 "model": [
                     "srv/authentication"
-                ]
+                ],
+                "[development]": {
+                    "data": "db/data"
+                }
             }
         }
     }

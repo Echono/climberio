@@ -15,7 +15,7 @@ context Bouldering {
         registrations : Association to many Register
                             on registrations.route = $self;
         tags          : Association to many Tag
-                            on tags.ID;
+                            on tags.ID = $self.tags.ID;
     }
 
     entity Register : managed {

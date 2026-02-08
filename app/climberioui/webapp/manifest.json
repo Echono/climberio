@@ -89,7 +89,10 @@
 					"synchronizationMode": "None",
 					"operationMode": "Server",
 					"autoExpandSelect": true,
-					"earlyRequests": true
+					"earlyRequests": true,
+					"httpHeaders": {
+						"Authorization": "Basic YWRtaW46cGFzcw=="
+					}
 				}
 			},
 			"authentication": {
@@ -100,7 +103,10 @@
 					"synchronizationMode": "None",
 					"operationMode": "Server",
 					"autoExpandSelect": true,
-					"earlyRequests": true
+					"earlyRequests": true,
+					"httpHeaders": {
+						"Authorization": "Basic YWRtaW46cGFzcw=="
+					}
 				}
 			},
 			"dashboard": {

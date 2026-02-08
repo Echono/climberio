@@ -1,18 +1,22 @@
 @url = http://localhost:4004
 @path = bouldering
-
+@login = admin:pass
 ### METADATA
 GET {{url}}/{{path}}/$metadata
+Authorization: Basic {{login}}
 
 ### GET RouteSet
 GET {{url}}/{{path}}/RouteSet?$expand=tags,registrations
+Authorization: Basic {{login}}
 
 ### POST RouteSet
+# @name route1
+@route1id = {{route1.response.body.$.ID}}
 POST {{url}}/{{path}}/RouteSet
 content-Type: application/json
+Authorization: Basic {{login}}
 
 {
-    "ID": "582da0e7-14ac-4a41-8c7f-a26df096191e",
     "name": "New test route",
     "officialGrade": "Blue",
     "amountOfHolds": 15,
@@ -21,66 +25,78 @@ content-Type: application/json
     "wallType": "Slab",
     "tags": [
         {
-            "tags_ID": "5eb32426-d635-45ed-9a90-a3c68ddfe36f"
+            "tags_ID": "{{tag1id}}"
         },
         {
-            "tags_ID": "512b73ca-3e8b-472f-b0c6-77d80cf8d6ac"
+            "tags_ID": "{{tag2id}}"
         },
         {
-            "tags_ID": "cb422001-ceb7-4b50-bbfb-1bf92115c4a8"
+            "tags_ID": "{{tag3id}}"
         }
     ]
 }
 
 ### DELETE a Route
-DELETE {{url}}/{{path}}/RouteSet('582da0e7-14ac-4a41-8c7f-a26df096191e')
+DELETE {{url}}/{{path}}/RouteSet('{{route1id}}')
+Authorization: Basic {{login}}
 
 ### GET Tags
 GET {{url}}/{{path}}/TagSet?$expand=routes
+Authorization: Basic {{login}}
 
 ### POST a new Tag
+# @name tag1
+@tag1id = {{tag1.response.body.$.ID}}
 POST {{url}}/{{path}}/TagSet
 content-Type: application/json
+Authorization: Basic {{login}}
 
 {
-    "ID": "5eb32426-d635-45ed-9a90-a3c68ddfe36f",
     "name": "Heelhook",
     "tagText": "Heel Hook"
 }
 
+
 ### POST another tag
+# @name tag2
+@tag2id = {{tag2.response.body.$.ID}}
 POST {{url}}/{{path}}/TagSet
 content-Type: application/json
+Authorization: Basic {{login}}
 
 {
-    "ID": "512b73ca-3e8b-472f-b0c6-77d80cf8d6ac",
     "name": "ToeHook",
     "tagText": "Toe Hook"
 }
 
 ### POST a third tag
+# @name tag3
+@tag3id = {{tag3.response.body.$.ID}}
 POST {{url}}/{{path}}/TagSet
 content-Type: application/json
+Authorization: Basic {{login}}
 
 {
-    "ID": "cb422001-ceb7-4b50-bbfb-1bf92115c4a8",
     "name": "Dyno",
     "tagText": "Dyno"
 }
 
 
 ### DELETE a Tag
-DELETE {{url}}/{{path}}/TagSet('5eb32426-d635-45ed-9a90-a3c68ddfe36f')
+DELETE {{url}}/{{path}}/TagSet('{{tag3id}}')
+Authorization: Basic {{login}}
 
 ### GET RegisterSet
 GET {{url}}/{{path}}/RegisterSet
+Authorization: Basic {{login}}
 
 ### POST a new Registration
 POST {{url}}/{{path}}/RegisterSet
 content-Type: application/json
+Authorization: Basic {{login}}
 
 {
-    "route_ID": "582da0e7-14ac-4a41-8c7f-a26df096191e",
+    "route_ID": "{{route1id}}",
     "runner_ID": "95881ab5-8f51-4e02-8768-e100ad16d44b",
     "runnerGradeDifficulty": 3,
     "attempts": 2,

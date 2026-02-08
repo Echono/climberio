@@ -1,7 +1,8 @@
 using {Bouldering} from '../db/schema';
 
 service BoulderingService @(
-    path: '/bouldering'
+    path: '/bouldering',
+    requires: 'authenticated-user'
 ) {
     entity RouteSet    as projection on Bouldering.Route;
     entity RegisterSet as projection on Bouldering.Register;
