@@ -16,10 +16,18 @@ content-Type: application/json
     "name": "New test route",
     "officialGrade": "Blue",
     "amountOfHolds": 15,
+    "active": true,
+    "removedAt": null,
     "wallType": "Slab",
     "tags": [
         {
             "tags_ID": "5eb32426-d635-45ed-9a90-a3c68ddfe36f"
+        },
+        {
+            "tags_ID": "512b73ca-3e8b-472f-b0c6-77d80cf8d6ac"
+        },
+        {
+            "tags_ID": "cb422001-ceb7-4b50-bbfb-1bf92115c4a8"
         }
     ]
 }
@@ -37,7 +45,27 @@ content-Type: application/json
 {
     "ID": "5eb32426-d635-45ed-9a90-a3c68ddfe36f",
     "name": "Heelhook",
-    "tagText": "HH"
+    "tagText": "Heel Hook"
+}
+
+### POST another tag
+POST {{url}}/{{path}}/TagSet
+content-Type: application/json
+
+{
+    "ID": "512b73ca-3e8b-472f-b0c6-77d80cf8d6ac",
+    "name": "ToeHook",
+    "tagText": "Toe Hook"
+}
+
+### POST a third tag
+POST {{url}}/{{path}}/TagSet
+content-Type: application/json
+
+{
+    "ID": "cb422001-ceb7-4b50-bbfb-1bf92115c4a8",
+    "name": "Dyno",
+    "tagText": "Dyno"
 }
 
 

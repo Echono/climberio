@@ -1,7 +1,9 @@
-<mvc:View controllerName="climberioui.controller.Routes"
+<mvc:View xmlns:rowmodes="sap.ui.table.rowmodes" controllerName="climberioui.controller.Routes"
     displayBlock="true"
     xmlns="sap.m"
+	xmlns:ui="sap.ui.table"
     xmlns:f="sap.f"
+	xmlns:layout ="sap.ui.layout"
 	xmlns:tnt="sap.tnt"
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:core="sap.ui.core"
@@ -9,9 +11,78 @@
 		formatter: 'climberioui/model/formatter'
 	}">
 
-	<f:DynamicPage>
+	<f:DynamicPage id="routesPage"
+		headerExpanded="true"
+		toggleHeaderOnTitleClick="false">
+		<f:title>
+			<f:DynamicPageTitle id="routesTitle">
+				<f:heading>
+					<Title text="{i18n>routes}"/>
+				</f:heading>
+				<f:expandedContent>
+					<Label text="{i18n>routesSubheading}"/>
+				</f:expandedContent>
+				<f:snappedContent>
+					<Label text="{i18n>routesSubheading}"/>
+				</f:snappedContent>
+				<f:actions>
+					<Button text="{i18n>newRoute}" icon="sap-icon://add" type="Emphasized" press=".onNewRoutePress"/>
+				</f:actions>
+			</f:DynamicPageTitle>
+		</f:title>
+		<f:header>
+			<f:DynamicPageHeader id="routesHeader" pinnable="false">
+					<layout:VerticalLayout class="sapUiNoContentPadding">
+						<ObjectAttribute title="{i18n>totalRoutes}" text="0"></ObjectAttribute>
+						<ObjectAttribute title="{i18n>routesYouHaveAttempted}" text="0"></ObjectAttribute>
+					</layout:VerticalLayout>
+			</f:DynamicPageHeader>
+		</f:header>
         <f:content>
-            <Text text="hello world Routes" />
+			<FlexBox id="routesContent">
+				<ui:Table id="routesTable" 
+					enableSelectAll="false"
+					rows="{bouldering>/RouteSet}"
+					selectionBehavior="RowOnly"
+					selectionMode="Single"
+					rowSelectionChange=".onRouteSelect">
+					<ui:rowMode>
+						<rowmodes:Auto minRowCount="1"></rowmodes:Auto>
+					</ui:rowMode>
+					<ui:columns>
+						<ui:Column>
+							<Label text="{i18n>routeName}" />
+							<ui:template>
+								<Text text="{bouldering>name}"/>
+							</ui:template>
+						</ui:Column>
+						<ui:Column>
+							<Label text="{i18n>difficulty}" />
+							<ui:template>
+								<Text text="{bouldering>officialGrade}"/>
+							</ui:template>
+						</ui:Column>
+						<ui:Column>
+							<Label text="{i18n>tags}" />
+							<ui:template>
+								<FlexBox renderType="Bare">
+									<Tokenizer tokens="{path: 'bouldering>tags', templateShareable: false}" displayOnly="true" editable="false">
+										<tokens>
+											<Token key="{bouldering>name}" text="{bouldering>tagText}" />
+										</tokens>
+									</Tokenizer>
+								</FlexBox>
+							</ui:template>
+						</ui:Column>
+						<ui:Column>
+							<Label text="{i18n>createdBy}" />
+							<ui:template>
+								<Text text="{bouldering>createdBy}"/>
+							</ui:template>
+						</ui:Column>
+					</ui:columns>
+				</ui:Table>
+			</FlexBox>
         </f:content>
 	</f:DynamicPage>
 

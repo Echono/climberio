@@ -10,6 +10,8 @@ context Bouldering {
         officialGrade : Grade;
         amountOfHolds : Integer;
         wallType      : Wall;
+        active        : Boolean;
+        removedAt     : Timestamp;
         registrations : Association to many Register
                             on registrations.route = $self;
         tags          : Association to many Tag

@@ -14,7 +14,7 @@
 		showHeader="false">
 		<content>
 			<FlexBox id="mainWrapper" height="100%" justifyContent="Center" alignItems="Center">
-				<FlexBox id="mainBackgroundWrapper" backgroundDesign="Solid">
+				<Panel id="mainBackgroundWrapper" backgroundDesign="Solid">
 					<VBox id="mainContent" class="sapUiSmallMargin" alignItems="Center">
 						<Title text="{i18n>welcome}" class="sapUiSmallMarginBottom" titleStyle="H2"/>
 						<Button
@@ -24,7 +24,7 @@
 							press=".loginWithGoogle">
 						</Button>
 					</VBox>
-				</FlexBox>
+				</Panel>
 			</FlexBox>
 		</content>
 	</Page>
