@@ -1,12 +1,16 @@
 @url = http://localhost:4004
 @path = bouldering
-@login = admin:pass
+@login = consumer:pass
 ### METADATA
 GET {{url}}/{{path}}/$metadata
 Authorization: Basic {{login}}
 
+########################
+######## ROUTES ########
+########################
+
 ### GET RouteSet
-GET {{url}}/{{path}}/RouteSet?$expand=tags,registrations
+GET {{url}}/{{path}}/RouteSet?$expand=tags($expand=tag)
 Authorization: Basic {{login}}
 
 ### POST RouteSet
@@ -24,15 +28,9 @@ Authorization: Basic {{login}}
     "removedAt": null,
     "wallType": "Slab",
     "tags": [
-        {
-            "tags_ID": "{{tag1id}}"
-        },
-        {
-            "tags_ID": "{{tag2id}}"
-        },
-        {
-            "tags_ID": "{{tag3id}}"
-        }
+        {"tag_ID": "{{tag1id}}"},
+        {"tag_ID": "{{tag2id}}"},
+        {"tag_ID": "{{tag3id}}"}
     ]
 }
 
@@ -43,6 +41,10 @@ Authorization: Basic {{login}}
 ### GET Tags
 GET {{url}}/{{path}}/TagSet?$expand=routes
 Authorization: Basic {{login}}
+
+########################
+######### TAGS #########
+########################
 
 ### POST a new Tag
 # @name tag1
@@ -86,6 +88,10 @@ Authorization: Basic {{login}}
 DELETE {{url}}/{{path}}/TagSet('{{tag3id}}')
 Authorization: Basic {{login}}
 
+###########################
+######## REGISTERS ########
+###########################
+
 ### GET RegisterSet
 GET {{url}}/{{path}}/RegisterSet
 Authorization: Basic {{login}}
@@ -97,7 +103,6 @@ Authorization: Basic {{login}}
 
 {
     "route_ID": "{{route1id}}",
-    "runner_ID": "95881ab5-8f51-4e02-8768-e100ad16d44b",
     "runnerGradeDifficulty": 3,
     "attempts": 2,
     "status": "In Progress"

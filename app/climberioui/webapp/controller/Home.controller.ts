@@ -5,12 +5,15 @@ import BaseController from "./BaseController";
  */
 export default class Home extends BaseController {
 
+    private readonly routeName = "home";
+
     public onInit(): void {
-        this.getRouter().getRoute("home").attachPatternMatched(this.onRouteMatched, this);
+        this.getRouter().getRoute(this.routeName).attachPatternMatched(() => this.setSideNavigationKey(this.routeName), this);
+        this.getRouter().getRoute(this.routeName).attachPatternMatched(this.onPatternMatched, this);
     }
 
-    private onRouteMatched(): void {
-        this.setSideNavigationKey("home");
+    private onPatternMatched(): void {
+        this.setSideNavigationKey(this.routeName);
     }
 
 }

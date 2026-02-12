@@ -169,6 +169,11 @@
 					"target": "routes"
 				},
 				{
+					"pattern": "dashboard/bouldering/routes/{routeID}",
+					"name": "routeDetails",
+					"target": "routeDetails"
+				},
+				{
 					"pattern": "dashboard/bouldering/my/runs",
 					"name": "myRuns",
 					"target": "myRuns"
@@ -200,6 +205,13 @@
 				"routes": {
 					"id": "routes",
 					"name": "Routes",
+					"parent": "dashboard",
+					"controlId": "dashboardContainer",
+					"controlAggregation": "pages"
+				},
+				"routeDetails": {
+					"id": "routeDetails",
+					"name": "routeDetails",
 					"parent": "dashboard",
 					"controlId": "dashboardContainer",
 					"controlAggregation": "pages"

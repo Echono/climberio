@@ -68,7 +68,7 @@
 								<FlexBox renderType="Bare">
 									<Tokenizer tokens="{path: 'bouldering>tags', templateShareable: false}" displayOnly="true" editable="false">
 										<tokens>
-											<Token key="{bouldering>name}" text="{bouldering>tagText}" />
+											<Token key="{bouldering>tag/name}" text="{bouldering>tag/tagText}" />
 										</tokens>
 									</Tokenizer>
 								</FlexBox>

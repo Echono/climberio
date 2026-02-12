@@ -1,6 +1,7 @@
 using {
     cuid,
-    managed
+    managed,
+    User
 } from '@sap/cds/common';
 
 context Bouldering {
@@ -12,25 +13,27 @@ context Bouldering {
         wallType      : Wall;
         active        : Boolean;
         removedAt     : Timestamp;
-        registrations : Association to many Register
+        registrations : Composition of many Register
                             on registrations.route = $self;
-        tags          : Association to many Tag
-                            on tags.ID = $self.tags.ID;
+        tags          : Composition of many {
+                            key tag : Association to Tag
+                        };
     }
 
-    entity Register : managed {
-        key runner                : Association to one Authentication.User;
+    entity Register {
+        key user                  : User      @cds.on.insert: $user;
         key route                 : Association to one Route;
             runnerGradeDifficulty : Difficulty;
             attempts              : Integer;
             status                : RouteStatus;
+            createdAt             : Timestamp @cds.on.insert: $now;
     }
 
     entity Tag : cuid {
         name    : String;
         tagText : String(10);
-        routes  : Association to many Route
-                      on routes.tags = $self;
+        routes  : Composition of many Route.tags
+                      on routes.tag = $self;
     }
 
     type RouteStatus : String enum {

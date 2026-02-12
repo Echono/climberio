@@ -6,12 +6,10 @@ import BaseController from "./BaseController";
  */
 export default class Account extends BaseController {
 
-    public onInit(): void {
-        this.getRouter().getRoute("account").attachPatternMatched(this.onRouteMatched, this);
-    }
+    private readonly routeName = "account";
 
-    private onRouteMatched(): void {
-        this.setSideNavigationKey("account");
+    public onInit(): void {
+        this.getRouter().getRoute(this.routeName).attachPatternMatched(() => this.setSideNavigationKey(this.routeName), this);
     }
 
     public onLogoutPress(): void {

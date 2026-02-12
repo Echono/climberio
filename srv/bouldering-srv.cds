@@ -5,7 +5,8 @@ service BoulderingService @(
     requires: 'authenticated-user'
 ) {
     entity RouteSet    as projection on Bouldering.Route;
-    entity RegisterSet as projection on Bouldering.Register;
+    entity RegisterSet @(restrict: [
+        { grant: ['READ', 'WRITE'], where: 'user = $user' }
+    ]) as projection on Bouldering.Register;
     entity TagSet      as projection on Bouldering.Tag;
-
 }

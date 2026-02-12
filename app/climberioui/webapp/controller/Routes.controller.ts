@@ -7,17 +7,17 @@ import { Route } from "#cds-models/Bouldering";
  */
 export default class Routes extends BaseController {
 
+    private readonly routeName = "routes";
+
     public onInit(): void {
-        this.getRouter().getRoute("routes").attachPatternMatched(this.onRouteMatched, this);
+        this.getRouter().getRoute(this.routeName).attachPatternMatched(() => this.setSideNavigationKey(this.routeName), this);
     }
 
     public onRouteSelect(event: Table$RowSelectionChangeEvent) {
         const row = event.getParameter("rowContext");
-        console.log(row.getObject());
-    }
-
-    private onRouteMatched(): void {
-        this.setSideNavigationKey("routes");
+        const data = row?.getObject() as Route;
+        const encoded = encodeURIComponent(data.ID);
+        this.getRouter().navTo("routeDetails", { routeID: encoded });
     }
 
 }
