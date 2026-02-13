@@ -1,6 +1,7 @@
 @url = http://localhost:4004
 @path = bouldering
-@login = user:pass
+@user = consumer
+@login = {{user}}:pass
 ### METADATA
 GET {{url}}/{{path}}/$metadata
 Authorization: Basic {{login}}
@@ -111,3 +112,6 @@ Authorization: Basic {{login}}
     "attempts": 2,
     "status": "In Progress"
 }
+
+### UPDATE a Registraition
+GET {{url}}/{{path}}/Registrations(route_ID='{{route1id}}',user='{{user}}')
