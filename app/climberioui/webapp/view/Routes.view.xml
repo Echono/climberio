@@ -33,8 +33,7 @@
 		<f:header>
 			<f:DynamicPageHeader id="routesHeader" pinnable="false">
 					<layout:VerticalLayout class="sapUiNoContentPadding">
-						<ObjectAttribute title="{i18n>totalRoutes}" text="0"></ObjectAttribute>
-						<ObjectAttribute title="{i18n>routesYouHaveAttempted}" text="0"></ObjectAttribute>
+						<ObjectAttribute id="routesTotal" title="{i18n>totalRoutes}" text="{bouldering>$count}"></ObjectAttribute>
 					</layout:VerticalLayout>
 			</f:DynamicPageHeader>
 		</f:header>
@@ -42,7 +41,15 @@
 			<FlexBox id="routesContent">
 				<ui:Table id="routesTable" 
 					enableSelectAll="false"
-					rows="{bouldering>/RouteSet}"
+					rows="{
+						path: 'bouldering>/RouteSet',
+						parameters: {
+							$count: true
+						},
+						events: {
+							dataReceived: '.onDataReceived'
+						}
+					}"
 					selectionBehavior="RowOnly"
 					selectionMode="Single"
 					rowSelectionChange=".onRouteSelect">
