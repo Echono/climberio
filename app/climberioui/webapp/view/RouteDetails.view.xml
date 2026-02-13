@@ -27,8 +27,8 @@
 					<layout:VerticalLayout>
 						<m:Label text="ID: {bouldering>ID}" wrapping="true"/>
 						<m:GenericTag 
-							text="{:= %{bouldering>active} === true ? 'Active' : 'Inactive'}"
 							design="StatusIconHidden"
+							text="{:= %{bouldering>active} === true ? 'Active' : 'Inactive'}"
 							status="{= %{bouldering>active} === true ? 'Success' : 'Error'}"/>
 					</layout:VerticalLayout>
 				</expandedContent>

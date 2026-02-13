@@ -44,7 +44,8 @@
 					rows="{
 						path: 'bouldering>/Routes',
 						parameters: {
-							$count: true
+							$count: true,
+							$$updateGroupId: 'newRouteGroup'
 						},
 						events: {
 							dataReceived: '.onDataReceived'
@@ -54,7 +55,7 @@
 					selectionMode="Single"
 					rowSelectionChange=".onRouteSelect">
 					<ui:rowMode>
-						<rowmodes:Auto minRowCount="1"></rowmodes:Auto>
+						<rowmodes:Auto minRowCount="20"></rowmodes:Auto>
 					</ui:rowMode>
 					<ui:columns>
 						<ui:Column>

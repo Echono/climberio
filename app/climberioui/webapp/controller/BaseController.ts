@@ -24,6 +24,7 @@ export default abstract class BaseController extends Controller {
 	protected readonly authenticationModel = "authentication";
 	protected readonly dashboardModel = "dashboard";
 	protected readonly accountModel = "account";
+	protected readonly valueHelpBoulderingModel = "valueHelpBouldering";
 
 	/**
 	 * Convenience method for accessing the component of the controller's view.

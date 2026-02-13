@@ -36,26 +36,41 @@
             singleContainerFullSize="true">
             <form:content>
                <Label text="{i18n>routeName}" />
-               <Input placeholder="{i18n>enterRouteName}" />
+               <Input placeholder="{i18n>enterRouteName}" value="{bouldering>name}" />
                <Label text="{i18n>grade}" />
-               <ComboBox id="gradesComboBox" binding="{bouldering>/getGrades(...)}" items="{bouldering>value}" change=".onValidateComboBox">
-                  <core:Item key="{bouldering>identifier}" text="{bouldering>content}" />
+               <ComboBox id="gradesComboBox"
+                  items="{valueHelpBouldering>value}" 
+                  change=".onValidateComboBox"
+                  selectedKey="{bouldering>officialGrade}">
+                  <customData>
+                     <core:CustomData key="function" value="/getGrades(...)" />
+                     <core:CustomData key="identifier" value="grades" />
+                  </customData>
+                  <core:Item key="{valueHelpBouldering>identifier}" text="{valueHelpBouldering>content}" />
                </ComboBox>
                <Label text="{i18n>amountHolds}" />
-               <Input type="Number" />
+               <Input type="Number" value="{bouldering>amountOfHolds}" />
                <Label text="{i18n>wallType}" />
-               <ComboBox id="wallsComboBox" binding="{bouldering>/getWalls(...)}" items="{bouldering>value}" change=".onValidateComboBox">
-                  <core:Item key="{bouldering>identifier}" text="{bouldering>content}" />
+               <ComboBox id="wallsComboBox" 
+                  items="{valueHelpBouldering>value}"
+                  change=".onValidateComboBox"
+                  selectedKey="{bouldering>wallType}">
+                  <customData>
+                     <core:CustomData key="function" value="/getWalls(...)" />
+                     <core:CustomData key="identifier" value="walls" />
+                  </customData>
+                  <core:Item key="{valueHelpBouldering>identifier}" text="{valueHelpBouldering>content}" />
                </ComboBox>
                <Label text="{i18n>tags}" />
                <MultiComboBox
-                  items="{bouldering>/Tags}">
-                  <core:Item key="{bouldering>name}" text="{bouldering>tagText}" />
+                  items="{valueHelpBouldering>/Tags}"
+                  selectedKeys="{path: 'bouldering>tags', targetType: 'any', formatter: '.formatTagsForMultiComboBox'}">
+                  <core:Item key="{valueHelpBouldering>ID}" text="{valueHelpBouldering>tagText}" />
                </MultiComboBox>
                <Label text="{i18n>active}" />
-               <CheckBox selected="true" />
+               <CheckBox selected="{bouldering>active}" />
                <Label text="{i18n>removedAt}" />
-               <DatePicker />
+               <DatePicker value="{bouldering>removedAt}" />
             </form:content>
          </form:SimpleForm>
       </content>

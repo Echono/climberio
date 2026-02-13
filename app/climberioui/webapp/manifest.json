@@ -95,6 +95,20 @@
 					}
 				}
 			},
+			"valueHelpBouldering": {
+				"type": "sap.ui.model.odata.v4.ODataModel",
+				"dataSource": "climbercapbouldering",
+				"preload": true,
+				"settings": {
+					"synchronizationMode": "None",
+					"operationMode": "Server",
+					"autoExpandSelect": true,
+					"earlyRequests": true,
+					"httpHeaders": {
+						"Authorization": "Basic YWRtaW46cGFzcw=="
+					}
+				}
+			},
 			"authentication": {
 				"type": "sap.ui.model.odata.v4.ODataModel",
 				"dataSource": "climbercapauth",
