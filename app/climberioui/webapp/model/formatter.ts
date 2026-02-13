@@ -1,5 +1,7 @@
+import { Tag } from "#cds-models/Bouldering";
+
 export default {
-	formatValue: (value: string) => {
-		return value?.toUpperCase();
+	formatTags: (tags: {tag: Tag}[]) => {
+		return tags.map(tagWrapper => tagWrapper.tag.name).join(", ");
 	}
 };

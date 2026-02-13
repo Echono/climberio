@@ -1,18 +1,72 @@
 <mvc:View controllerName="climberioui.controller.routeDetails"
     displayBlock="true"
-    xmlns="sap.m"
-    xmlns:f="sap.f"
-	xmlns:tnt="sap.tnt"
+    xmlns="sap.uxap"
+	xmlns:m	="sap.m"
+	xmlns:layout="sap.ui.layout"
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:core="sap.ui.core"
 	core:require="{
 		formatter: 'climberioui/model/formatter'
 	}">
 
-	<f:DynamicPage>
-        <f:content>
-            <Text text="hello world Route detail" />
-        </f:content>
-	</f:DynamicPage>
+	<ObjectPageLayout
+		id="routeDetailsPage"
+		headerContentPinned="true"
+		showHeaderContent="true"
+		showTitleInHeaderContent="true"
+		toggleHeaderOnTitleClick="false"
+		headerContentPinnable="false">
+		<headerTitle>
+			<ObjectPageDynamicHeaderTitle>
+				<expandedHeading>
+					<m:HBox>
+						<m:Title text="{bouldering>name}" wrapping="true"/>
+					</m:HBox>
+				</expandedHeading>
+				<expandedContent>
+					<layout:VerticalLayout>
+						<m:Label text="ID: {bouldering>ID}" wrapping="true"/>
+						<m:GenericTag 
+							text="{:= %{bouldering>active} === true ? 'Active' : 'Inactive'}"
+							design="StatusIconHidden"
+							status="{= %{bouldering>active} === true ? 'Success' : 'Error'}"/>
+					</layout:VerticalLayout>
+				</expandedContent>
+				<actions>
+					<m:Button text="{i18n>share}" icon="sap-icon://share" press=".onSharePress" type="Emphasized"/>
+				</actions>
+			</ObjectPageDynamicHeaderTitle>
+		</headerTitle>
+		<headerContent>
+			<m:FlexBox wrap="Wrap" justifyContent="SpaceBetween" renderType="Bare">
+				<layout:VerticalLayout>
+					<m:ObjectStatus title="{i18n>grade}" text="{bouldering>officialGrade}"/>
+					<m:ObjectStatus title="{i18n>amountHolds}" text="{bouldering>amountOfHolds}"/>
+					<m:ObjectStatus title="{i18n>wallType}" text="{bouldering>wallType}"/>
+					<m:ObjectStatus title="{i18n>tags}" 
+						text="{
+							path: 'bouldering>tags', 
+							formatter: 'formatter.formatTags', 
+							targetType: 'any'
+						}"/>
+				</layout:VerticalLayout>
+				<layout:VerticalLayout>
+					<m:ObjectStatus title="{i18n>createdAt}" text="{bouldering>createdAt}"/>
+					<m:ObjectStatus title="{i18n>createdBy}" text="{bouldering>createdBy}"/>
+				</layout:VerticalLayout>
+			</m:FlexBox>
+		</headerContent>
+		<sections>
+			<ObjectPageSection title="{i18n>sectionTitleMyRegistration}" titleUppercase="false">
+				<subSections>
+					<ObjectPageSubSection>
+						<m:List items="{path: 'bouldering>registrations'}">
+							<m:StandardListItem title="{bouldering>user}"/>
+						</m:List>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+		</sections>
+	</ObjectPageLayout>
 
 </mvc:View>

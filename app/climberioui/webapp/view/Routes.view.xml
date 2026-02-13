@@ -65,8 +65,8 @@
 						<ui:Column>
 							<Label text="{i18n>tags}" />
 							<ui:template>
-								<FlexBox renderType="Bare">
-									<Tokenizer tokens="{path: 'bouldering>tags', templateShareable: false}" displayOnly="true" editable="false">
+								<FlexBox renderType="Bare" wrap="Wrap">
+									<Tokenizer tokens="{path: 'bouldering>tags', templateShareable: false}" displayOnly="true" editable="false" enabled="false" renderMode="Loose" multiLine="true">
 										<tokens>
 											<Token key="{bouldering>tag/name}" text="{bouldering>tag/tagText}" />
 										</tokens>

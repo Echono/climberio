@@ -1,6 +1,6 @@
 @url = http://localhost:4004
 @path = bouldering
-@login = consumer:pass
+@login = admin:pass
 ### METADATA
 GET {{url}}/{{path}}/$metadata
 Authorization: Basic {{login}}
@@ -10,7 +10,11 @@ Authorization: Basic {{login}}
 ########################
 
 ### GET RouteSet
-GET {{url}}/{{path}}/RouteSet?$expand=tags($expand=tag)
+GET {{url}}/{{path}}/RouteSet?$expand=tags($expand=tag),registrations
+Authorization: Basic {{login}}
+
+### Get a specific Route
+GET {{url}}/{{path}}/RouteSet('{{route1id}}')
 Authorization: Basic {{login}}
 
 ### POST RouteSet
