@@ -21,12 +21,13 @@ context Bouldering {
     }
 
     entity Register {
-        key user                  : User      @cds.on.insert: $user;
+        key user                  : User       @cds.on.insert: $user;
         key route                 : Association to one Route;
             runnerGradeDifficulty : Difficulty;
             attempts              : Integer;
             status                : RouteStatus;
-            createdAt             : Timestamp @cds.on.insert: $now;
+            createdAt             : Timestamp  @cds.on.insert: $now;
+            modifiedAt            : Timestamp  @cds.on.insert: $now  @cds.on.update: $now;
     }
 
     entity Tag : cuid {

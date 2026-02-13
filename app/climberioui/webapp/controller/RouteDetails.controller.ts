@@ -1,7 +1,6 @@
-import JSONModel from "sap/ui/model/json/JSONModel";
 import BaseController from "./BaseController";
 import { Route$PatternMatchedEvent } from "sap/ui/core/routing/Route";
-import { User } from "#cds-models/Authentication";
+import List from "sap/m/List";
 
 /**
  * @namespace climberioui.controller
@@ -13,6 +12,9 @@ export default class RouteDetails extends BaseController {
 
     public onInit(): void {
         this.getRouter().getRoute(this.routeName).attachPatternMatched(() => this.setSideNavigationKey(this.navigationKey), this);
+    }
+    
+    public onAfterRendering(): void | undefined {
         this.getRouter().getRoute(this.routeName).attachPatternMatched(this.onPatternMatched, this);
     }
 
@@ -26,10 +28,13 @@ export default class RouteDetails extends BaseController {
         const view = this.getView();
         view.bindElement({
             path: `/RouteSet('${routeID}')`,
-            model: "bouldering",
             parameters: {
                 $expand: `tags($expand=tag)`
             }
         })
+        const list = view.byId("routeDetailsMyRegistration") as List;
+        const binding = list.getBinding("items") as ODataListBinding;
+        binding.filter(new Filter("route_ID", "EQ", routeID));
+        binding.resume();  
     }
 }
