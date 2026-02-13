@@ -42,7 +42,7 @@
 				<ui:Table id="routesTable" 
 					enableSelectAll="false"
 					rows="{
-						path: 'bouldering>/RouteSet',
+						path: 'bouldering>/Routes',
 						parameters: {
 							$count: true
 						},

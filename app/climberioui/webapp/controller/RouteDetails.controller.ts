@@ -30,7 +30,7 @@ export default class RouteDetails extends BaseController {
     private setupView(routeID: string): void {
         const view = this.getView();
         view.bindElement({
-            path: `/RouteSet('${routeID}')`,
+            path: `/Routes('${routeID}')`,
             model: "bouldering",
             parameters: {
                 $expand: `tags($expand=tag)`

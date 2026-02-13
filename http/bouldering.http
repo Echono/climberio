@@ -9,18 +9,18 @@ Authorization: Basic {{login}}
 ######## ROUTES ########
 ########################
 
-### GET RouteSet
-GET {{url}}/{{path}}/RouteSet?$expand=tags($expand=tag),registrations
+### GET Routes
+GET {{url}}/{{path}}/Routes?$expand=tags($expand=tag),registrations
 Authorization: Basic {{login}}
 
 ### Get a specific Route
-GET {{url}}/{{path}}/RouteSet('{{route1id}}')
+GET {{url}}/{{path}}/Routes('{{route1id}}')
 Authorization: Basic {{login}}
 
-### POST RouteSet
+### POST Routes
 # @name route1
 @route1id = {{route1.response.body.$.ID}}
-POST {{url}}/{{path}}/RouteSet
+POST {{url}}/{{path}}/Routes
 content-Type: application/json
 Authorization: Basic {{login}}
 
@@ -39,11 +39,11 @@ Authorization: Basic {{login}}
 }
 
 ### DELETE a Route
-DELETE {{url}}/{{path}}/RouteSet('{{route1id}}')
+DELETE {{url}}/{{path}}/Routes('{{route1id}}')
 Authorization: Basic {{login}}
 
 ### GET Tags
-GET {{url}}/{{path}}/TagSet?$expand=routes
+GET {{url}}/{{path}}/Tags?$expand=routes
 Authorization: Basic {{login}}
 
 ########################
@@ -53,7 +53,7 @@ Authorization: Basic {{login}}
 ### POST a new Tag
 # @name tag1
 @tag1id = {{tag1.response.body.$.ID}}
-POST {{url}}/{{path}}/TagSet
+POST {{url}}/{{path}}/Tags
 content-Type: application/json
 Authorization: Basic {{login}}
 
@@ -66,7 +66,7 @@ Authorization: Basic {{login}}
 ### POST another tag
 # @name tag2
 @tag2id = {{tag2.response.body.$.ID}}
-POST {{url}}/{{path}}/TagSet
+POST {{url}}/{{path}}/Tags
 content-Type: application/json
 Authorization: Basic {{login}}
 
@@ -78,7 +78,7 @@ Authorization: Basic {{login}}
 ### POST a third tag
 # @name tag3
 @tag3id = {{tag3.response.body.$.ID}}
-POST {{url}}/{{path}}/TagSet
+POST {{url}}/{{path}}/Tags
 content-Type: application/json
 Authorization: Basic {{login}}
 
@@ -89,19 +89,19 @@ Authorization: Basic {{login}}
 
 
 ### DELETE a Tag
-DELETE {{url}}/{{path}}/TagSet('{{tag3id}}')
+DELETE {{url}}/{{path}}/Tags('{{tag3id}}')
 Authorization: Basic {{login}}
 
 ###########################
 ######## REGISTERS ########
 ###########################
 
-### GET RegisterSet
-GET {{url}}/{{path}}/RegisterSet
+### GET Registrations
+GET {{url}}/{{path}}/Registrations
 Authorization: Basic {{login}}
 
 ### POST a new Registration
-POST {{url}}/{{path}}/RegisterSet
+POST {{url}}/{{path}}/Registrations
 content-Type: application/json
 Authorization: Basic {{login}}
 

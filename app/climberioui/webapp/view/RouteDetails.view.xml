@@ -60,7 +60,7 @@
 			<ObjectPageSection title="{i18n>sectionTitleMyRegistration}" titleUppercase="false">
 				<subSections>
 					<ObjectPageSubSection>
-						<m:List id="routeDetailsMyRegistration" items="{path: 'bouldering>/RegisterSet', suspended: true}">
+						<m:List id="routeDetailsMyRegistration" items="{path: 'bouldering>/Registrations', suspended: true}">
 							<m:StandardListItem type="Navigation" 
 								title="{bouldering>status}" 
 								description="{i18n>attempts}: {bouldering>attempts}" 
