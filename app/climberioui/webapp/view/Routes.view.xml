@@ -26,7 +26,7 @@
 					<Label text="{i18n>routesSubheading}"/>
 				</f:snappedContent>
 				<f:actions>
-					<Button text="{i18n>newRoute}" icon="sap-icon://add" type="Emphasized" press=".onNewRoutePress"/>
+					<Button id="createNewRouteButton" text="{i18n>newRoute}" icon="sap-icon://add" type="Emphasized" press=".onNewRoutePress"/>
 				</f:actions>
 			</f:DynamicPageTitle>
 		</f:title>

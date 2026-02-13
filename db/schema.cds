@@ -97,4 +97,9 @@ context Status {
         user    : Association to one Authentication.User;
     }
 
+    type EnumObject {
+        identifier: String; 
+        content: String;
+    }
+
 }

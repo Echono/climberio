@@ -1,4 +1,4 @@
-using {Bouldering} from '../db/schema';
+using {Bouldering, Status} from '../db/schema';
 
 service BoulderingService @(
     path    : '/bouldering',
@@ -17,4 +17,8 @@ service BoulderingService @(
     }])           as projection on Bouldering.Register;
 
     entity Tags   as projection on Bouldering.Tag;
+
+    function getGrades() returns array of Status.EnumObject;
+    function getWalls() returns array of Status.EnumObject;
+
 }

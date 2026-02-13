@@ -16,6 +16,15 @@ import { UserSet } from "#cds-models/AuthenticationService";
  * @namespace climberioui.controller
  */
 export default abstract class BaseController extends Controller {
+
+	/**
+	 * Simple readonly values for all the model names
+	 */
+	protected readonly boulderingModel = "bouldering";
+	protected readonly authenticationModel = "authentication";
+	protected readonly dashboardModel = "dashboard";
+	protected readonly accountModel = "account";
+
 	/**
 	 * Convenience method for accessing the component of the controller's view.
 	 * @returns The component of the controller's view
@@ -91,7 +100,7 @@ export default abstract class BaseController extends Controller {
 	 * @returns boolean
 	 */
 	public async isAuthenticated(): Promise<{authenticated: boolean, user: UserSet}> {
-		const model = this.getModel("authentication") as ODataModel;
+		const model = this.getModel(this.authenticationModel) as ODataModel;
 		const context = model.bindContext('/isAuthenticated(...)');
 		await context.invoke();
 		const result = context.getBoundContext()?.getObject() as AuthenticationStatus;
@@ -104,7 +113,7 @@ export default abstract class BaseController extends Controller {
 	 * @param key string
 	 */
 	public setSideNavigationKey(key: string): void {
-		const model = this.getModel("dashboard") as JSONModel;
+		const model = this.getModel(this.dashboardModel) as JSONModel;
 		model.setProperty("/selectedKey", key);
 	}
 

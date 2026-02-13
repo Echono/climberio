@@ -115,3 +115,11 @@ Authorization: Basic {{login}}
 
 ### UPDATE a Registraition
 GET {{url}}/{{path}}/Registrations(route_ID='{{route1id}}',user='{{user}}')
+
+###########################
+######## FUNCTIONS ########
+###########################
+
+### GET Grades
+GET {{url}}/{{path}}/getGrades()
+Authorization: Basic {{login}}

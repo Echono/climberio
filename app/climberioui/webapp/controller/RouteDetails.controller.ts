@@ -31,7 +31,7 @@ export default class RouteDetails extends BaseController {
         const view = this.getView();
         view.bindElement({
             path: `/Routes('${routeID}')`,
-            model: "bouldering",
+            model: this.boulderingModel,
             parameters: {
                 $expand: `tags($expand=tag)`
             }
@@ -44,4 +44,5 @@ export default class RouteDetails extends BaseController {
         }
 
     }
+
 }

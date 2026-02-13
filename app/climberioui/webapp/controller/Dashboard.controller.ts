@@ -23,7 +23,7 @@ export default class Dashboard extends BaseController {
                 const resourceBundle = await this.getResourceBundle();
                 throw new Error(resourceBundle.getText("notAuthenticatedError"));
             }
-            (this.getModel("account") as JSONModel).setData(authenticationCheck.user);
+            (this.getModel(this.accountModel) as JSONModel).setData(authenticationCheck.user);
             const currentRoute = this.getRouter().getHashChanger().getHash();
             if(currentRoute === "dashboard") {
                 this.navTo("home");
