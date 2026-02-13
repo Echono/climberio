@@ -63,9 +63,8 @@
                </ComboBox>
                <Label text="{i18n>tags}" />
                <MultiComboBox
-                  items="{valueHelpBouldering>/Tags}"
-                  selectedKeys="{path: 'bouldering>tags', targetType: 'any'}">
-                  <core:Item key="{valueHelpBouldering>ID}" text="{valueHelpBouldering>tagText}" />
+                  items="{valueHelpBouldering>/Tags}">
+                  <core:Item key="{valueHelpBouldering>}" text="{valueHelpBouldering>tagText}" />
                </MultiComboBox>
                <Label text="{i18n>active}" />
                <CheckBox selected="{bouldering>active}" />
