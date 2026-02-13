@@ -16,14 +16,15 @@ context Bouldering {
         registrations : Composition of many Register
                             on registrations.route = $self;
         tags          : Composition of many {
-                            key tag : Association to Tag
+                            key tag : Association to Tag @assert.target
                         };
+        averageRating : Decimal;
     }
 
     entity Register {
         key user                  : User       @cds.on.insert: $user;
-        key route                 : Association to one Route;
-            runnerGradeDifficulty : Difficulty;
+        key route                 : Association to one Route @assert.target;
+            runnerGradeDifficulty : Integer @assert.range: [(1), (10)];
             attempts              : Integer;
             status                : RouteStatus;
             createdAt             : Timestamp  @cds.on.insert: $now;
@@ -58,14 +59,6 @@ context Bouldering {
         RED = 'Red';
         BLACK = 'Black';
         PINK = 'Pink';
-    }
-
-    type Difficulty  : Integer enum {
-        VERYEASY = 1;
-        EASY = 2;
-        MEDIUM = 3;
-        HARD = 4;
-        VERYHARD = 5;
     }
 
 }
