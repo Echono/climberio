@@ -40,6 +40,10 @@
                     "consumer": {
                         "password": "pass",
                         "roles": ["consumer"]
+                    },
+                    "user": {
+                        "password": "pass",
+                        "roles": ["consumer"]
                     }
                 }
             },
