@@ -64,7 +64,7 @@
                <Label text="{i18n>tags}" />
                <MultiComboBox
                   items="{valueHelpBouldering>/Tags}"
-                  selectedKeys="{path: 'bouldering>tags', targetType: 'any', formatter: '.formatTagsForMultiComboBox'}">
+                  selectedKeys="{path: 'bouldering>tags', targetType: 'any'}">
                   <core:Item key="{valueHelpBouldering>ID}" text="{valueHelpBouldering>tagText}" />
                </MultiComboBox>
                <Label text="{i18n>active}" />
